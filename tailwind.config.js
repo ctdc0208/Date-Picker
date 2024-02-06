@@ -8,7 +8,10 @@ export default {
     extend: {
       colors: {
         'red': '#b52618',
-        'gray': '#828282'
+        'gray': '#8e8e8e',
+      },
+      width: {
+        '128': '27rem'
       }
     },
   },

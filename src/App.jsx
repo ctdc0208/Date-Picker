@@ -1,6 +1,8 @@
+import DateField from "./DateField"
+
 function App() {
   return (
-    <div className="py-10 w-72 md:w-fit flex flex-col justify-center mx-auto">
+    <div className="py-10 md:w-fit flex flex-col justify-center mx-auto">
       <div className="flex flex-row">
         <div className="font-bold text-2xl">
           Date and time
@@ -16,14 +18,14 @@ function App() {
           />
         <div className="font-semibold mr-2">Publish ASAP</div>
         <img 
-          src="../src/assets/info_FILL0_wght400_GRAD0_opsz24.svg"
+          src="../src/assets/info.svg"
           className="h-4 w-4"
         />
       </div>
-      <div className="font-gray  mt-8">
+      <div className="text-gray mt-8">
         Publication date:
       </div>
-      <input className="h-10 w-10" placeholder="input"/>
+      <DateField />
     </div>
   )
 }

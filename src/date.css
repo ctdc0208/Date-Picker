@@ -1,0 +1,29 @@
+.input-placeholder {
+    position: relative;
+}
+
+.input-placeholder input {
+    margin-left: 10px;
+}
+
+.input-placeholder input:focus {
+    outline: none;
+}
+
+.input-placeholder input:valid+.placeholder {
+    display: none;
+}
+
+.placeholder {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    margin: auto;
+    color: #ccc;
+}
+
+.placeholder span {
+    color: red;
+}
