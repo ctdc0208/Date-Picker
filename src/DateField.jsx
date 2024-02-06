@@ -1,8 +1,10 @@
 import './date.css'
-import {useState} from 'react'
+import {useState} from 'react';
+import Calendar from 'react-calendar';
 
 export default function DateField() {
     const [isOpen, setIsOpen] = useState(true);
+    const [value, onChange] = useState(new Date());
     return (
     <>
         <button onClick={() => setIsOpen(!isOpen)} className="flex flex-row items-center mt-5 w-128 h-10 border border-solid border-gray rounded-lg ring-offset-8 ">
@@ -11,18 +13,23 @@ export default function DateField() {
             className="h-4 w-4 ml-4"
             />
            <div className="input-placeholder">
-                <input type="text" required></input>
+                <input type="text" value={value} className='w-80' required></input>
                 <div className="placeholder">
                     Select release date<span className='font-extrabold ml-1'>*</span>
                 </div>
             </div>
             <img 
                 src="../src/assets/expand.svg"
-                className="h-4 w-4 ml-28"
-                />
+                className="h-4 w-4 ml-10"
+            />
         </button>
         {isOpen && (
             <div className='mt-2 border rounded-md'>
+                <Calendar 
+                    onChange={onChange} 
+                    value={value}
+                    className='w-128'
+                />
                 <div className='border-t-2 border-gray p-5 space-x-7 flex flex-row justify-center w-128'>
                     <div>
                         <div className='font-bold text-sm'>Publication Time</div>
@@ -34,7 +41,7 @@ export default function DateField() {
                             <option value="11:30 AM">11:30 AM</option>
                             <option value="12:00 PM">12:00 PM</option>
                             <option value="12:30 PM">12:30 PM</option>
-                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="12:00 PM">01:00 PM</option>
                             <option value="01:30 PM">01:30 PM</option>
                             <option value="02:00 PM">02:00 PM</option>
                             <option value="02:30 PM">02:30 PM</option>
