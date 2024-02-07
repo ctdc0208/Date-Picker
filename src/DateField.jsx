@@ -1,9 +1,10 @@
 import './date.css'
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import Calendar from 'react-calendar';
 
 export default function DateField() {
     const timeOptions = [
+        {value: '09:00 AM', text: "09:00 AM"},
         {value: '09:30 AM', text: "09:30 AM"},
         {value: '10:00 AM', text: "10:00 AM"},
         {value: '10:30 AM', text: "10:30 AM"},
@@ -44,10 +45,21 @@ export default function DateField() {
 
 
     const [isOpen, setIsOpen] = useState(true);
-    // const [inputValue, setInputValue] = useState();
+    const [inputValue, setInputValue] = useState();
     const [calendarValue, calendarValueOnChange] = useState(new Date());
     const [timeValue, timeValueOnChange] = useState(timeOptions[0].value);
     const [timezoneValue, timezoneValueOnChange] = useState(timezoneOptions[0].value);
+
+   
+
+    const close = useRef(null)
+    const closeOpenMenus = (e)=>{
+        if(isOpen && !close.current?.contains(e.target)){
+          setIsOpen(false)
+        }
+    }
+
+    document.addEventListener('mousedown',closeOpenMenus)
 
     const month = calendarValue.getMonth()
     const day = calendarValue.getDate()
@@ -55,6 +67,10 @@ export default function DateField() {
     const getMonthNames = monthNames[month]
 
     const value = day + '/' + getMonthNames + '/' + year +' ' + timeValue + ' ' + '(' + timezoneValue + ')'
+
+    function handleInputChange() {
+        setInputValue(value);
+    }
 
     const handleTimeChange = event => {
         timeValueOnChange(event.target.value);
@@ -65,13 +81,13 @@ export default function DateField() {
     
     return (
     <>
-        <button onClick={() => setIsOpen(!isOpen)} className="flex flex-row items-center mt-5 w-72 md:w-96 lg:w-128 h-10 border border-solid border-gray rounded-lg ring-offset-8 ">
+        <button onClick={() => setIsOpen(!isOpen)}  className="flex flex-row items-center mt-5 w-72 md:w-96 lg:w-128 h-10 border border-solid border-gray rounded-lg ring-offset-8 ">
             <img 
             src="../src/assets/calendar.svg"
             className="h-4 w-4 ml-4"
             />
            <div className="input-placeholder">
-                <input type="text" value={value} className='w-52 md:w-64 lg:w-80' required></input>
+                <input type="text" value={inputValue} onChange={handleInputChange} className='w-52 md:w-64 lg:w-80' required></input>
                 <div className="placeholder">
                     Select release date<span className='font-extrabold ml-1'>*</span>
                 </div>
@@ -82,16 +98,21 @@ export default function DateField() {
             />
         </button>
         {isOpen && (
-            <div className='mt-2'>
+            <div 
+                className='mt-1'
+                ref={close}
+            >
                 <Calendar 
                     onChange={calendarValueOnChange} 
                     value={calendarValue}
+                    formatShortWeekday={(locale, value) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][value.getDay()]}
                     calendarType='islamic'
                     className='w-72 md:w-96 lg:w-128'
                     prevLabel=""
                     nextLabel=""
                 />
-                <div className='border-t border-gray p-3 md:p-5 space-y-3 md:space-y-0 md:space-x-7 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
+                
+                <div className='border-t mt-2 border-light-gray p-5 md:p-5 space-y-3 md:space-y-0 md:space-x-5 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
                     <div>
                         <div className='font-bold text-sm'>Publication Time</div>
                         <select name='time' id='time' onChange={handleTimeChange} value={timeValue} className='border bottom-1 border-gray p-2 mt-2 w-44 rounded-lg text-gray'>
