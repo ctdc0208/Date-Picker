@@ -86,11 +86,12 @@ export default function DateField() {
                 <Calendar 
                     onChange={calendarValueOnChange} 
                     value={calendarValue}
+                    calendarType='islamic'
                     className='w-72 md:w-96 lg:w-128'
                     prevLabel=""
                     nextLabel=""
                 />
-                <div className='border-t border-gray p-3 md:p-5 space-y-3 md:space-x-7 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
+                <div className='border-t border-gray p-3 md:p-5 space-y-3 md:space-y-0 md:space-x-7 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
                     <div>
                         <div className='font-bold text-sm'>Publication Time</div>
                         <select name='time' id='time' onChange={handleTimeChange} value={timeValue} className='border bottom-1 border-gray p-2 mt-2 w-44 rounded-lg text-gray'>
