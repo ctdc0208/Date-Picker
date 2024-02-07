@@ -44,6 +44,7 @@ export default function DateField() {
 
 
     const [isOpen, setIsOpen] = useState(true);
+    const [inputValue, setInputValue] = useState();
     const [calendarValue, calendarValueOnChange] = useState(new Date());
     const [timeValue, timeValueOnChange] = useState(timeOptions[0].value);
     const [timezoneValue, timezoneValueOnChange] = useState(timezoneOptions[0].value);
@@ -64,20 +65,20 @@ export default function DateField() {
     
     return (
     <>
-        <button onClick={() => setIsOpen(!isOpen)} className="flex flex-row items-center mt-5 w-128 h-10 border border-solid border-gray rounded-lg ring-offset-8 ">
+        <button onClick={() => setIsOpen(!isOpen)} className="flex flex-row items-center mt-5 w-72 md:w-96 lg:w-128 h-10 border border-solid border-gray rounded-lg ring-offset-8 ">
             <img 
             src="../src/assets/calendar.svg"
             className="h-4 w-4 ml-4"
             />
            <div className="input-placeholder">
-                <input type="text" value={value} className='w-80' required></input>
+                <input type="text" value={value} className='w-52 md:w-64 lg:w-80' required></input>
                 <div className="placeholder">
                     Select release date<span className='font-extrabold ml-1'>*</span>
                 </div>
             </div>
             <img 
                 src="../src/assets/expand.svg"
-                className="h-4 w-4 ml-10"
+                className="h-4 w-4 ml-3 md:ml-14 lg:ml-10"
             />
         </button>
         {isOpen && (
@@ -85,11 +86,11 @@ export default function DateField() {
                 <Calendar 
                     onChange={calendarValueOnChange} 
                     value={calendarValue}
-                    className='w-128  border rounded-xl'
-                    prevLabel="<"
-                    nextLabel=">"
+                    className='w-72 md:w-96 lg:w-128 border rounded-xl'
+                    prevLabel=""
+                    nextLabel=""
                 />
-                <div className='border-t-2 border-gray p-5 space-x-7 flex flex-row justify-center w-128'>
+                <div className='border-t-2 border-gray p-5 mt-5 md:space-x-7 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
                     <div>
                         <div className='font-bold text-sm'>Publication Time</div>
                         <select name='time' id='time' onChange={handleTimeChange} value={timeValue} className='border bottom-1 border-gray p-2 mt-2 w-44 rounded-lg text-gray'>

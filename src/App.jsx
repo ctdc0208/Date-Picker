@@ -2,7 +2,7 @@ import DateField from "./DateField"
 
 function App() {
   return (
-    <div className="py-10 md:w-fit flex flex-col justify-center mx-auto">
+    <div className="py-10 w-72 md:w-fit lg:w-128 flex flex-col justify-center mx-auto">
       <div className="flex flex-row">
         <div className="font-bold text-2xl">
           Date and time
