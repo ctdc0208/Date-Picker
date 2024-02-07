@@ -81,19 +81,19 @@ export default function DateField() {
     
     return (
     <>
-        <button onClick={() => setIsOpen(!isOpen)}  className="flex flex-row items-center mt-5 w-72 md:w-96 lg:w-128 h-10 border border-solid border-gray rounded-lg ring-offset-8 ">
+        <button onClick={() => setIsOpen(!isOpen)}  className="flex flex-row items-center mt-5 w-72 md:w-96 lg:w-128 h-10 border border-solid border-light-gray rounded-lg ring-offset-8 ">
             <img 
-            src="../src/assets/calendar.svg"
+            src="../Date-Picker/src/assets/calendar.svg"
             className="h-4 w-4 ml-4"
             />
            <div className="input-placeholder">
-                <input type="text" value={inputValue} onChange={handleInputChange} className='w-52 md:w-64 lg:w-80' required></input>
+                <input type="text" defaultValue={""} value={value} onChange={handleInputChange} className='w-52 md:w-64 lg:w-80' required></input>
                 <div className="placeholder">
                     Select release date<span className='font-extrabold ml-1'>*</span>
                 </div>
             </div>
             <img 
-                src="../src/assets/expand.svg"
+                src="../Date-Picker/src/assets/expand.svg"
                 className="h-4 w-4 ml-3 md:ml-14 lg:ml-10"
             />
         </button>
@@ -115,7 +115,7 @@ export default function DateField() {
                 <div className='border-t mt-2 border-light-gray p-5 md:p-5 space-y-3 md:space-y-0 md:space-x-5 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
                     <div>
                         <div className='font-bold text-sm'>Publication Time</div>
-                        <select name='time' id='time' onChange={handleTimeChange} value={timeValue} className='border bottom-1 border-gray p-2 mt-2 w-44 rounded-lg text-gray'>
+                        <select name='time' id='time' onChange={handleTimeChange} value={timeValue} className='border bottom-1 border-light-gray p-2 mt-2 w-44 rounded-lg text-gray'>
                             {timeOptions.map(option => (
                                 <option key={option.value} value={option.value}>
                                     {option.text}
@@ -125,7 +125,7 @@ export default function DateField() {
                     </div>
                     <div>
                         <div className='font-bold text-sm'>Publication Timezone</div>
-                        <select name='timezone' id='timezone' onChange={handleTimezoneChange} value={timezoneValue} className='border bottom-1 border-gray p-2 mt-2 w-44 rounded-lg text-gray'>
+                        <select name='timezone' id='timezone' onChange={handleTimezoneChange} value={timezoneValue} className='border bottom-1 border-light-gray p-2 mt-2 w-44 rounded-lg text-gray'>
                             {timezoneOptions.map(option => (
                                 <option key={option.value} value={option.value}>
                                     {option.text}
