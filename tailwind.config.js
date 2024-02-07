@@ -9,9 +9,10 @@ export default {
       colors: {
         'red': '#b52618',
         'gray': '#8e8e8e',
+        'light-gray': '#cfcfcf',
       },
       width: {
-        '128': '27rem'
+        '128': '27rem',
       }
     },
   },
