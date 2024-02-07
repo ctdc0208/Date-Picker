@@ -162,6 +162,9 @@
     border-radius: 0.25rem;
     padding: 0 !important;
     color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (min-width: 0px) {
@@ -182,8 +185,8 @@
 
 @media (min-width: 1024px) {
     .react-calendar__tile--active {
-        flex: 0 0 7.2857% !important;
-        margin: 0.5rem 0.94rem !important;
+        flex: 0 0 5.6857% !important;
+        margin: 0.5rem 1.15rem !important;
         height: 1.5rem !important;
     }
 }
