@@ -44,7 +44,7 @@ export default function DateField() {
 
 
     const [isOpen, setIsOpen] = useState(true);
-    const [inputValue, setInputValue] = useState();
+    // const [inputValue, setInputValue] = useState();
     const [calendarValue, calendarValueOnChange] = useState(new Date());
     const [timeValue, timeValueOnChange] = useState(timeOptions[0].value);
     const [timezoneValue, timezoneValueOnChange] = useState(timezoneOptions[0].value);
@@ -82,15 +82,15 @@ export default function DateField() {
             />
         </button>
         {isOpen && (
-            <div className='mt-2 rounded-md'>
+            <div className='mt-2'>
                 <Calendar 
                     onChange={calendarValueOnChange} 
                     value={calendarValue}
-                    className='w-72 md:w-96 lg:w-128 border rounded-xl'
+                    className='w-72 md:w-96 lg:w-128'
                     prevLabel=""
                     nextLabel=""
                 />
-                <div className='border-t-2 border-gray p-5 mt-5 md:space-x-7 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
+                <div className='border-t border-gray p-3 md:p-5 space-y-3 md:space-x-7 flex flex-col md:flex-row justify-center w-72 md:w-96 lg:w-128'>
                     <div>
                         <div className='font-bold text-sm'>Publication Time</div>
                         <select name='time' id='time' onChange={handleTimeChange} value={timeValue} className='border bottom-1 border-gray p-2 mt-2 w-44 rounded-lg text-gray'>
