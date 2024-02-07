@@ -13,12 +13,12 @@ function App() {
       </div>
       <div className="flex flex-row items-center mt-7">
         <img 
-            src="../Date-Picker/src/assets/check_box.svg"
+            src="../src/assets/check_box.svg"
             className="h-5 w-5 mr-2"
           />
         <div className="font-semibold mr-2">Publish ASAP</div>
         <img 
-          src="../Date-Picker/src/assets/info.svg"
+          src="../src/assets/info.svg"
           className="h-4 w-4"
         />
       </div>

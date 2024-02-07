@@ -81,13 +81,6 @@
     color: #b3b3b3 !important;
 }
 
-.react-calendar__tile,
-.react-calendar__tile--active,
-.react-calendar__tile--range,
-.react-calendar__tile--rangeStart .react-calendar__tile--rangeEnd,
-.react-calendar__tile--rangeBothEnds,
-.react-calendar__month-view__days__day {}
-
 .react-calendar {
     background: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -186,7 +179,7 @@
 @media (min-width: 1024px) {
     .react-calendar__tile--active {
         flex: 0 0 5.6857% !important;
-        margin: 0.5rem 1.15rem !important;
+        margin: 0.5rem 1.164rem !important;
         height: 1.5rem !important;
     }
 }

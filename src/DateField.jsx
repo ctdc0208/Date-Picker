@@ -44,7 +44,7 @@ export default function DateField() {
     ];
 
 
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const [inputValue, setInputValue] = useState();
     const [calendarValue, calendarValueOnChange] = useState(new Date());
     const [timeValue, timeValueOnChange] = useState(timeOptions[0].value);
@@ -65,7 +65,6 @@ export default function DateField() {
     const day = calendarValue.getDate()
     const year = calendarValue.getFullYear();
     const getMonthNames = monthNames[month]
-
     const value = day + '/' + getMonthNames + '/' + year +' ' + timeValue + ' ' + '(' + timezoneValue + ')'
 
     function handleInputChange() {
@@ -83,7 +82,7 @@ export default function DateField() {
     <>
         <button onClick={() => setIsOpen(!isOpen)}  className="flex flex-row items-center mt-5 w-72 md:w-96 lg:w-128 h-10 border border-solid border-light-gray rounded-lg ring-offset-8 ">
             <img 
-            src="../Date-Picker/src/assets/calendar.svg"
+            src="../src/assets/calendar.svg"
             className="h-4 w-4 ml-4"
             />
            <div className="input-placeholder">
@@ -93,7 +92,7 @@ export default function DateField() {
                 </div>
             </div>
             <img 
-                src="../Date-Picker/src/assets/expand.svg"
+                src="../src/assets/expand.svg"
                 className="h-4 w-4 ml-3 md:ml-14 lg:ml-10"
             />
         </button>
