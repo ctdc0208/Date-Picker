@@ -25,7 +25,7 @@
 }
 
 .placeholder span {
-    color: red;
+    color: #b52618;
 }
 
 .react-calendar__navigation__prev2-button,
@@ -159,9 +159,33 @@
 .react-calendar__tile--active {
     background-color: #b52618 !important;
     background-position: center !important;
-    background-origin: inherit !important;
     border-radius: 0.25rem;
+    padding: 0 !important;
     color: white !important;
+}
+
+@media (min-width: 0px) {
+    .react-calendar__tile--active {
+        flex: 0 0 8.2857% !important;
+        margin: 0.5rem 0.54rem !important;
+        height: 1.5rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .react-calendar__tile--active {
+        flex: 0 0 7.2857% !important;
+        margin: 0.5rem 0.84rem !important;
+        height: 1.5rem !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .react-calendar__tile--active {
+        flex: 0 0 7.2857% !important;
+        margin: 0.5rem 0.94rem !important;
+        height: 1.5rem !important;
+    }
 }
 
 abbr:where([title]) {
